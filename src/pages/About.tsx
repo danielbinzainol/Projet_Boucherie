@@ -45,7 +45,7 @@ export const About = () => {
             
             {/* Bouton Google Maps */}
             <Button className="w-full mt-auto gap-2" onClick={() => window.open(clientConfig.googleMapLink, '_blank')}>
-               Voir l'itinéraire
+            Voir l'itinéraire
             </Button>
           </div>
 
