@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Butcher Shop Design System */
+
+@layer base {
+  :root {
+    /* Core Colors - Warm, Premium Feel */
+    --background: 30 25% 98%;
+    --foreground: 20 14% 12%;
+
+    --card: 30 30% 99%;
+    --card-foreground: 20 14% 12%;
+
+    --popover: 30 30% 99%;
+    --popover-foreground: 20 14% 12%;
+
+    /* Primary - Deep Butcher Red */
+    --primary: 0 84% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Slate Grey */
+    --secondary: 215 16% 47%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 30 10% 94%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Accent - Warm Gold */
+    --accent: 38 92% 50%;
+    --accent-foreground: 20 14% 12%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
+    --ring: 0 84% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom Colors */
+    --rustic: 30 40% 95%;
+    --rustic-border: 30 30% 80%;
+    --cream: 40 40% 97%;
+    --warm-grey: 30 8% 50%;
+
+    /* Shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(20 14% 12% / 0.08);
+    --shadow-card: 0 4px 20px -4px hsl(20 14% 12% / 0.1);
+    --shadow-elevated: 0 12px 40px -8px hsl(20 14% 12% / 0.15);
+
+    /* Sidebar defaults */
+    --sidebar-background: 30 25% 98%;
+    --sidebar-foreground: 20 14% 12%;
+    --sidebar-primary: 0 84% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 30 40% 95%;
+    --sidebar-accent-foreground: 20 14% 12%;
+    --sidebar-border: 30 15% 88%;
+    --sidebar-ring: 0 84% 50%;
+  }
+
+  .dark {
+    --background: 20 14% 8%;
+    --foreground: 30 25% 95%;
+
+    --card: 20 14% 12%;
+    --card-foreground: 30 25% 95%;
+
+    --popover: 20 14% 12%;
+    --popover-foreground: 30 25% 95%;
+
+    --primary: 0 84% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 16% 60%;
+    --secondary-foreground: 20 14% 12%;
+
+    --muted: 20 14% 18%;
+    --muted-foreground: 215 16% 60%;
+
+    --accent: 38 92% 55%;
+    --accent-foreground: 20 14% 12%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 20 14% 20%;
+    --input: 20 14% 20%;
+    --ring: 0 84% 55%;
+
+    --rustic: 20 14% 15%;
+    --rustic-border: 20 14% 25%;
+    --cream: 20 14% 10%;
+    --warm-grey: 30 8% 60%;
+
+    --sidebar-background: 20 14% 10%;
+    --sidebar-foreground: 30 25% 95%;
+    --sidebar-primary: 0 84% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 20 14% 15%;
+    --sidebar-accent-foreground: 30 25% 95%;
+    --sidebar-border: 20 14% 20%;
+    --sidebar-ring: 0 84% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+/* Animation Keyframes */
+@layer utilities {
+  @keyframes cartBounce {
+    0%, 100% { transform: scale(1); }
+    10%, 90% { transform: scale(1.05) translateX(-1px); }
+    20%, 80% { transform: scale(1.1) translateX(2px); }
+    30%, 50%, 70% { transform: scale(1.15) translateX(-2px); }
+    40%, 60% { transform: scale(1.1) translateX(2px); }
+  }
+
+  @keyframes cartShake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+    20%, 40%, 60%, 80% { transform: translateX(4px); }
+  }
+
+  @keyframes fadeInUp {
+    0% { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes pulseFast {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @keyframes scaleIn {
+    0% { 
+      opacity: 0; 
+      transform: scale(0.95); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: scale(1); 
+    }
+  }
+
+  @keyframes slideUp {
+    0% { 
+      opacity: 0; 
+      transform: translateY(100%); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  .animate-cart-bounce {
+    animation: cartBounce 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+
+  .animate-cart-shake {
+    animation: cartShake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+
+  .animate-pulse-fast {
+    animation: pulseFast 1s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg, hsl(var(--muted)) 0%, hsl(var(--muted) / 0.5) 50%, hsl(var(--muted)) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out forwards;
+  }
+
+  /* Staggered animation delays */
+  .stagger-1 { animation-delay: 0.05s; }
+  .stagger-2 { animation-delay: 0.1s; }
+  .stagger-3 { animation-delay: 0.15s; }
+  .stagger-4 { animation-delay: 0.2s; }
+  .stagger-5 { animation-delay: 0.25s; }
+  .stagger-6 { animation-delay: 0.3s; }
+}
+
+/* Glass effect utilities */
+@layer utilities {
+  .glass {
+    @apply bg-background/80 backdrop-blur-md;
+  }
+
+  .glass-card {
+    @apply bg-card/90 backdrop-blur-sm;
+  }
+}
+
+/* Rustic texture overlay */
+@layer utilities {
+  .rustic-texture {
+    position: relative;
+  }
+  
+  .rustic-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    border-radius: inherit;
+  }
+}
