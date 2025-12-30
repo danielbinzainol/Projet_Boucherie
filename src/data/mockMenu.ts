@@ -10,6 +10,35 @@ export const categories: Category[] = [
 ];
 
 export const products: Product[] = [
+  // --- PROMOTIONS ---
+  {
+    id: 'promo-cuisses-5kg',
+    title: 'Colis Cuisses Poulet (5kg)',
+    category: 'Promotions',
+    pricePerUnit: 20.00,
+    unitType: 'piece',
+    step: 1,
+    minQuantity: 1,
+    weight: 'Le colis de 5kg',
+    description: 'Offre spéciale familiale. Soit 4€/kg.',
+    image: '/images/products/Promotions/Pack_Cuisse.webp', // Image assignée
+    inStock: true,
+    featured: true,
+  },
+  {
+    id: 'promo-steaks-3kg',
+    title: 'Colis Steaks Hachés (3kg)',
+    category: 'Promotions',
+    pricePerUnit: 35.00,
+    unitType: 'piece',
+    step: 1,
+    minQuantity: 1,
+    weight: 'Le colis de 3kg',
+    description: 'Vrac boucherie, idéal congélation. 5% MG.',
+    image: '/images/products/Promotions/Pack_Steak.webp', // Image assignée
+    inStock: true,
+  },
+
   // --- LE BŒUF ---
   {
     id: 'boeuf-bifteck',
@@ -21,7 +50,7 @@ export const products: Product[] = [
     minQuantity: 0.150,
     weight: 'Au poids',
     description: 'Tranche tendre de cœur de rumsteck, idéale à griller.',
-    image: '/placeholder.svg',
+    image: '/images/products/Boeuf/Rumsteak.webp',
     inStock: true,
   },
   {
@@ -34,7 +63,7 @@ export const products: Product[] = [
     minQuantity: 0.300,
     weight: 'Au poids',
     description: 'Hachée à la demande, 5% ou 15% de matière grasse.',
-    image: '/placeholder.svg',
+    image: '/images/products/Boeuf/Steak_Hache.webp',
     inStock: true,
     featured: true,
   },
@@ -48,7 +77,7 @@ export const products: Product[] = [
     minQuantity: 0.250,
     weight: 'Au poids',
     description: 'Persillée à souhait, pour les amateurs de viande goûteuse.',
-    image: '/placeholder.svg',
+    image: '/images/products/Boeuf/Entrecote.webp',
     inStock: true,
     featured: true,
   },
@@ -62,7 +91,7 @@ export const products: Product[] = [
     minQuantity: 0.200,
     weight: 'Au poids',
     description: 'Moins gras que l\'entrecôte mais tout aussi tendre.',
-    image: '/placeholder.svg',
+    image: '/images/products/Boeuf/Faux_Filet.webp',
     inStock: true,
   },
   {
@@ -75,7 +104,7 @@ export const products: Product[] = [
     minQuantity: 0.500,
     weight: 'Au poids',
     description: 'Excellent pour les cuissons lentes ou les barbecues marinés.',
-    image: '/placeholder.svg',
+    image: '/images/products/Boeuf/Basse_Cote.webp',
     inStock: true,
   },
   {
@@ -88,7 +117,7 @@ export const products: Product[] = [
     minQuantity: 0.500,
     weight: 'Au poids',
     description: 'Morceaux choisis gélatineux pour des ragoûts fondants.',
-    image: '/placeholder.svg',
+    image: '/images/products/Boeuf/Bourguignon.webp',
     inStock: true,
   },
   {
@@ -101,7 +130,7 @@ export const products: Product[] = [
     minQuantity: 0.500,
     weight: 'Au poids',
     description: 'Avec os à moelle, indispensable pour un bon pot-au-feu.',
-    image: '/placeholder.svg',
+    image: '/images/products/Boeuf/Jarret_de_Boeuf.webp',
     inStock: true,
   },
   {
@@ -114,7 +143,7 @@ export const products: Product[] = [
     minQuantity: 0.500,
     weight: 'Au poids',
     description: 'Short Ribs, à braiser ou à griller doucement.',
-    image: '/placeholder.svg',
+    image: '/images/products/Boeuf/Plat_de_Cote.webp',
     inStock: true,
   },
   {
@@ -127,7 +156,7 @@ export const products: Product[] = [
     minQuantity: 0.150,
     weight: 'Au poids',
     description: 'Riche en fer, à saisir rapidement à la poêle.',
-    image: '/placeholder.svg',
+    image: '/images/products/Boeuf/Foie_de_Boeuf.webp',
     inStock: true,
   },
   {
@@ -140,7 +169,7 @@ export const products: Product[] = [
     minQuantity: 1,
     weight: 'La pièce',
     description: 'Vendue entière, à préparer sauce piquante ou gribiche.',
-    image: '/placeholder.svg',
+    image: '/images/products/Boeuf/Langue_de_Boeuf.webp',
     inStock: true,
   },
   {
@@ -153,7 +182,7 @@ export const products: Product[] = [
     minQuantity: 0.500,
     weight: 'Au poids',
     description: 'Pour des plats en sauce riches et onctueux.',
-    image: '/placeholder.svg',
+    image: '/images/products/Boeuf/Queue_de_Boeuf.webp',
     inStock: true,
   },
 
@@ -168,7 +197,7 @@ export const products: Product[] = [
     minQuantity: 1,
     weight: 'La pièce (env 2kg)',
     description: 'Le roi du repas dominical, tendre et délicat.',
-    image: '/placeholder.svg',
+    image: '/images/products/Agneau/Gigot_Agneau.webp',
     inStock: true,
     featured: true,
   },
@@ -182,7 +211,7 @@ export const products: Product[] = [
     minQuantity: 0.150,
     weight: 'Au poids',
     description: 'Steaks d\'agneau avec os, cuisson rapide.',
-    image: '/placeholder.svg',
+    image: '/images/products/Agneau/Tranche_de_Gigot.webp',
     inStock: true,
   },
   {
@@ -195,7 +224,7 @@ export const products: Product[] = [
     minQuantity: 1,
     weight: 'La pièce',
     description: 'Plus grasse que le gigot, idéale pour le confit.',
-    image: '/placeholder.svg',
+    image: '/images/products/Agneau/Epaule_Agneau.webp',
     inStock: true,
   },
   {
@@ -204,11 +233,11 @@ export const products: Product[] = [
     category: 'Agneau',
     pricePerUnit: 29.90,
     unitType: 'kg',
-    step: 0.200, // Env. 3 côtelettes
+    step: 0.200, 
     minQuantity: 0.200,
     weight: 'Au poids',
     description: 'Manchonnées ou premières, le must du barbecue.',
-    image: '/placeholder.svg',
+    image: '/images/products/Agneau/Cotelettes_Agneau.webp',
     inStock: true,
     featured: true,
   },
@@ -222,7 +251,7 @@ export const products: Product[] = [
     minQuantity: 0.500,
     weight: 'Au poids',
     description: 'Morceaux économiques pour navarin, couscous ou chorba.',
-    image: '/placeholder.svg',
+    image: '/images/products/Agneau/Colier_Agneau.webp',
     inStock: true,
   },
   {
@@ -235,7 +264,7 @@ export const products: Product[] = [
     minQuantity: 0.500,
     weight: 'Au poids',
     description: 'À griller bien croustillant ou pour parfumer les plats.',
-    image: '/placeholder.svg',
+    image: '/images/products/Agneau/Poitrine_Agneau.webp', // Image assignée
     inStock: true,
   },
   {
@@ -248,7 +277,7 @@ export const products: Product[] = [
     minQuantity: 0.500,
     weight: 'Au poids',
     description: 'Le morceau le plus tendre, le "filet" de l\'agneau.',
-    image: '/placeholder.svg',
+    image: '/images/products/Agneau/Selle_Agneau.webp',
     inStock: true,
   },
   {
@@ -261,7 +290,7 @@ export const products: Product[] = [
     minQuantity: 0.200,
     weight: 'Au poids',
     description: 'Très tendre, cuisson rosée recommandée.',
-    image: '/placeholder.svg',
+    image: '/images/products/Agneau/Foie_Agneau.webp',
     inStock: true,
   },
   {
@@ -274,7 +303,7 @@ export const products: Product[] = [
     minQuantity: 0.200,
     weight: 'Au poids',
     description: 'Morceau maigre et ferme, à griller en brochettes.',
-    image: '/placeholder.svg',
+    image: '/images/products/Agneau/Coeur_Agneau.webp', // Image assignée
     inStock: true,
   },
 
@@ -289,7 +318,7 @@ export const products: Product[] = [
     minQuantity: 1,
     weight: 'La pièce',
     description: 'Mariné et rôti à la broche sur place. Chaud ou froid.',
-    image: '/placeholder.svg',
+    image: '/images/products/Volaile/Poulet_Roti.webp', // Image assignée
     inStock: true,
     featured: true,
   },
@@ -299,11 +328,11 @@ export const products: Product[] = [
     category: 'Volaille',
     pricePerUnit: 7.50,
     unitType: 'kg',
-    step: 1.4, // Poids moyen
+    step: 1.4, 
     minQuantity: 1.2,
     weight: 'Au poids',
     description: 'Poulet jaune fermier, chair ferme et goût authentique.',
-    image: '/placeholder.svg',
+    image: '/images/products/Volaile/Poulet_Jaune_Fermier.webp', // Image assignée
     inStock: true,
   },
   {
@@ -312,11 +341,11 @@ export const products: Product[] = [
     category: 'Volaille',
     pricePerUnit: 6.50,
     unitType: 'kg',
-    step: 0.300, // Env. 1 cuisse
+    step: 0.300, 
     minQuantity: 0.300,
     weight: 'Au poids',
     description: 'Vendues au kilo ou par colis économique de 3kg.',
-    image: '/placeholder.svg',
+    image: '/images/products/Volaile/Cuisse_Poulet.webp', // Image assignée
     inStock: true,
   },
   {
@@ -329,7 +358,7 @@ export const products: Product[] = [
     minQuantity: 0.500,
     weight: 'Au poids',
     description: 'Idéal pour les enfants ou les marinades tandoori.',
-    image: '/placeholder.svg',
+    image: '/images/products/Volaile/Pilon_Poulet.webp', // Image assignée
     inStock: true,
   },
   {
@@ -342,7 +371,7 @@ export const products: Product[] = [
     minQuantity: 0.500,
     weight: 'Au poids',
     description: 'Wings à faire griller ou frire.',
-    image: '/placeholder.svg',
+    image: '/images/products/Volaile/Ailes_Poulet.webp', // Image assignée
     inStock: true,
   },
   {
@@ -351,11 +380,11 @@ export const products: Product[] = [
     category: 'Volaille',
     pricePerUnit: 13.90,
     unitType: 'kg',
-    step: 0.150, // Env. 1 filet
+    step: 0.150, 
     minQuantity: 0.150,
     weight: 'Au poids',
     description: 'Filet de poulet paré, sans gras ni nerfs.',
-    image: '/placeholder.svg',
+    image: '/images/products/Volaile/Escalope_Poulet.webp', // Image assignée
     inStock: true,
   },
   {
@@ -368,7 +397,7 @@ export const products: Product[] = [
     minQuantity: 0.150,
     weight: 'Au poids',
     description: 'Plus large et très fine, parfaite pour paner.',
-    image: '/placeholder.svg',
+    image: '/placeholder.svg', // Pas d'image trouvée pour la Dinde, je laisse le placeholder
     inStock: true,
   },
   {
@@ -381,7 +410,7 @@ export const products: Product[] = [
     minQuantity: 0.150,
     weight: 'Au poids',
     description: 'Fait maison : escalope fraîche, dinde fumée et fromage.',
-    image: '/placeholder.svg',
+    image: '/images/products/Volaile/Cordon_Bleu.webp', // Image assignée
     inStock: true,
   },
   {
@@ -394,7 +423,7 @@ export const products: Product[] = [
     minQuantity: 0.200,
     weight: 'Au poids',
     description: 'Vrais morceaux de filets panés, rien d\'autre.',
-    image: '/placeholder.svg',
+    image: '/images/products/Volaile/Nuggets_Poulet.webp', // Image assignée
     inStock: true,
   },
 
@@ -409,7 +438,7 @@ export const products: Product[] = [
     minQuantity: 0.500,
     weight: 'Au poids',
     description: 'Bœuf et agneau, boyau naturel. Recette ancestrale.',
-    image: '/placeholder.svg',
+    image: '/images/products/Spécialité/Merguez.webp', // Image assignée
     inStock: true,
     featured: true,
   },
@@ -423,7 +452,7 @@ export const products: Product[] = [
     minQuantity: 0.500,
     weight: 'Au poids',
     description: 'Saucisse fine de veau aux herbes de Provence.',
-    image: '/placeholder.svg',
+    image: '/images/products/Spécialité/Chipolata_Veau.webp', // Image assignée
     inStock: true,
   },
   {
@@ -436,7 +465,7 @@ export const products: Product[] = [
     minQuantity: 0.500,
     weight: 'Au poids',
     description: 'Préparation hachée avec oignons, persil et épices maison.',
-    image: '/placeholder.svg',
+    image: '/images/products/Spécialité/Kefta.webp', // Image assignée
     inStock: true,
   },
   {
@@ -449,7 +478,7 @@ export const products: Product[] = [
     minQuantity: 0.500,
     weight: 'Au poids',
     description: 'Spécialité au foie pour connaisseurs.',
-    image: '/placeholder.svg',
+    image: '/images/products/Spécialité/Saucisse_de_Foie.webp', // Image assignée
     inStock: true,
   },
   {
@@ -462,7 +491,7 @@ export const products: Product[] = [
     minQuantity: 0.500,
     weight: 'Au poids',
     description: 'Au choix : Tex-Mex, Curry, Citron ou Provençale.',
-    image: '/placeholder.svg',
+    image: '/images/products/Spécialité/Brochettes.webp', // Image assignée
     inStock: true,
   },
   {
@@ -475,7 +504,7 @@ export const products: Product[] = [
     minQuantity: 1,
     weight: 'La pièce',
     description: 'Cachir artisanal, idéal en dés pour l\'apéritif ou en sandwich.',
-    image: '/placeholder.svg',
+    image: '/images/products/Spécialité/Saucisson_Ail.webp', // Image assignée
     inStock: true,
   },
   {
@@ -488,7 +517,7 @@ export const products: Product[] = [
     minQuantity: 0.200,
     weight: 'Au poids',
     description: 'Relevé juste ce qu\'il faut, 100% bœuf.',
-    image: '/placeholder.svg',
+    image: '/images/products/Spécialité/Chorizo_Boeuf.webp', // Image assignée
     inStock: true,
   },
   {
@@ -501,35 +530,7 @@ export const products: Product[] = [
     minQuantity: 0.100,
     weight: 'Au poids',
     description: 'Fumé au bois de hêtre, pour raclettes ou petit-déjeuner.',
-    image: '/placeholder.svg',
-    inStock: true,
-  },
-  // --- PROMOTIONS (Exemple: 5kg cuisses) ---
-  {
-    id: 'promo-cuisses-5kg',
-    title: 'Colis Cuisses Poulet (5kg)',
-    category: 'Promotions',
-    pricePerUnit: 20.00, // 20€ le colis
-    unitType: 'piece',   // On vend "1 colis"
-    step: 1,
-    minQuantity: 1,
-    weight: 'Le colis de 5kg',
-    description: 'Offre spéciale familiale. Soit 4€/kg.',
-    image: '/placeholder.svg',
-    inStock: true,
-    featured: true,
-  },
-  {
-    id: 'promo-steaks-3kg',
-    title: 'Colis Steaks Hachés (3kg)',
-    category: 'Promotions',
-    pricePerUnit: 35.00,
-    unitType: 'piece',
-    step: 1,
-    minQuantity: 1,
-    weight: 'Le colis de 3kg',
-    description: 'Vrac boucherie, idéal congélation. 5% MG.',
-    image: '/placeholder.svg',
+    image: '/images/products/Spécialité/Bacon_Boeuf.webp', // Image assignée
     inStock: true,
   },
 
@@ -544,7 +545,7 @@ export const products: Product[] = [
     minQuantity: 1,
     weight: 'Le pot de 100g',
     description: 'Paprika fumé artisanal pour vos marinades.',
-    image: '/placeholder.svg',
+    image: '/images/products/Produit_Sec/Paprika_Doux.webp', // Image assignée
     inStock: true,
   },
   {
@@ -557,20 +558,20 @@ export const products: Product[] = [
     minQuantity: 1,
     weight: 'Le pot de 80g',
     description: 'Indispensable pour les keftas maison.',
-    image: '/placeholder.svg',
+    image: '/placeholder.svg', // Pas d'image trouvée dans votre liste
     inStock: true,
   },
   {
     id: 'sec-knacks',
     title: 'Saucisses Knacks (x10)',
-    category: 'Produits Secs', // Ou Charcuterie, selon votre logique
+    category: 'Produits Secs',
     pricePerUnit: 6.90,
     unitType: 'piece',
     step: 1,
     minQuantity: 1,
     weight: 'Le paquet',
     description: 'Saucisses de volaille fumées, idéales pour hot-dog.',
-    image: '/placeholder.svg',
+    image: '/images/products/Produit_Sec/Knacks.webp', // Image assignée
     inStock: true,
   },
   {
@@ -583,7 +584,7 @@ export const products: Product[] = [
     minQuantity: 1,
     weight: 'Le tube',
     description: 'La sauce classique pour accompagner vos viandes.',
-    image: '/placeholder.svg',
+    image: '/placeholder.svg', // Pas d'image trouvée dans votre liste
     inStock: true,
   },
 ];
