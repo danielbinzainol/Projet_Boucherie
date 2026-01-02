@@ -7,10 +7,23 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+
+# Build outputs
 dist
 dist-ssr
+
+# Security: Environment Variables (CRITICAL)
+.env
+.env.production
+.env.development
 *.local
+
+# Sanity CMS
+.sanity
+studio/node_modules
+studio/dist
 
 # Editor directories and files
 .vscode/*

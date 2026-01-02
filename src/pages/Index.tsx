@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { Filter } from 'lucide-react';
-import { products, categories } from '@/data/mockMenu';
+// ❌ ON SUPPRIME : import { products, categories } from '@/data/mockMenu';
 import { Product } from '@/types';
 import { useUIStore } from '@/store/useUIStore';
 import { SimpleHeader } from '@/components/headers/SimpleHeader';
@@ -8,8 +8,9 @@ import { StandardCard } from '@/components/atomic/cards/StandardCard';
 import { AddToCartModal } from '@/components/modals/AddToCartModal';
 import { Button } from '@/components/ui/button';
 import { useShopStatus } from '@/hooks/useShopStatus';
-// On garde motion juste pour l'apparition douce des cartes
 import { motion } from 'framer-motion';
+// ✅ ON AJOUTE :
+import { useMenuData } from '@/hooks/useMenuData';
 
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState<string>('Tous');
@@ -17,30 +18,22 @@ const Index = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { isOpen, message } = useShopStatus();
+  
+  // ✅ ON UTILISE LE HOOK
+  const { products, categories, loading } = useMenuData();
 
-  // On cible maintenant spécifiquement la GRILLE des produits
   const productsGridRef = useRef<HTMLDivElement>(null);
 
-  // --- LOGIQUE DE SCROLL "GLIDE" ---
+  // ... (La logique handleCategoryClick, handleOpenAddModal reste identique) ...
+  // COPIEZ LES FONCTIONS EXISTANTES ICI
   const handleCategoryClick = (categoryId: string) => {
-    // 1. Changement de catégorie
-    setActiveCategory(categoryId);
-
-    // 2. Le Scroll "Glide" vers le début des cartes
-    if (productsGridRef.current) {
-      // Calcul précis :
-      // On veut que le haut de la grille arrive sous le Header et les Filtres (qui sont sticky)
-      // Header (64px) + Filtres (~60px) + Marge (~20px) = ~140-150px
-      const stickyOffset = 150; 
-      
-      const elementPosition = productsGridRef.current.offsetTop;
-      const offsetPosition = elementPosition - stickyOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth' // C'est ici que se fait le "glide"
-      });
-    }
+     setActiveCategory(categoryId);
+     if (productsGridRef.current) {
+        const stickyOffset = 150; 
+        const elementPosition = productsGridRef.current.offsetTop;
+        const offsetPosition = elementPosition - stickyOffset;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+     }
   };
 
   const handleOpenAddModal = (product: Product) => {
@@ -52,28 +45,37 @@ const Index = () => {
     setIsModalOpen(false);
     setSelectedProduct(null);
   };
-
+  
+  // Logique de filtre
   const normalizeText = (text: string) => {
-    return text.toLowerCase().replace(/\s+/g, '').normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      return text.toLowerCase().replace(/\s+/g, '').normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   };
 
   const filteredProducts = products.filter((p) => {
     const matchesCategory = activeCategory === 'Tous' || p.category === activeCategory;
     if (!searchQuery) return matchesCategory;
-
     const queryNorm = normalizeText(searchQuery);
     const titleNorm = normalizeText(p.title);
     const descNorm = normalizeText(p.description);
     return matchesCategory && (titleNorm.includes(queryNorm) || descNorm.includes(queryNorm));
   });
 
+  // ✅ ÉTAT DE CHARGEMENT
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 dark:bg-slate-950 flex flex-col items-center justify-center space-y-4">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+        <p className="text-gray-500 animate-pulse">Chargement de la vitrine...</p>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-slate-950 transition-colors duration-300">
       <SimpleHeader />
 
       <main className="container mx-auto px-4 pt-6 pb-32">
-        
-        {/* Section Héro */}
+        {/* Section Héro (Identique) */}
         <section className="mb-6 text-center animate-in fade-in slide-in-from-top-4 duration-700">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3 tracking-tight">
             Boucherie <span className="text-primary">Artisanale</span>
@@ -87,7 +89,8 @@ const Index = () => {
               ? 'bg-green-50 border-green-200 text-green-700 dark:bg-green-900/20 dark:border-green-800 dark:text-green-400' 
               : 'bg-red-50 border-red-200 text-red-700 dark:bg-red-900/20 dark:border-red-800 dark:text-red-400'
           }`}>
-            <span className="relative flex h-3 w-3">
+             {/* ... Code du badge ouvert/fermé identique ... */}
+             <span className="relative flex h-3 w-3">
               <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isOpen ? 'bg-green-500' : 'bg-red-500'}`}></span>
               <span className={`relative inline-flex rounded-full h-3 w-3 ${isOpen ? 'bg-green-500' : 'bg-red-500'}`}></span>
             </span>
@@ -95,10 +98,8 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Navigation Catégories Sticky */}
-        <div 
-          className="sticky top-16 z-40 py-4 mb-6 bg-gray-50/95 dark:bg-slate-950/95 backdrop-blur-sm border-b border-gray-200/50 dark:border-slate-800/50 -mx-4 px-4 lg:mx-0 lg:px-4 lg:rounded-xl lg:border lg:bg-white/80 lg:dark:bg-slate-900/80 shadow-sm transition-all"
-        >
+        {/* Navigation Catégories (Identique mais utilise 'categories' du hook) */}
+        <div className="sticky top-16 z-40 py-4 mb-6 bg-gray-50/95 dark:bg-slate-950/95 backdrop-blur-sm border-b border-gray-200/50 dark:border-slate-800/50 -mx-4 px-4 lg:mx-0 lg:px-4 lg:rounded-xl lg:border lg:bg-white/80 lg:dark:bg-slate-900/80 shadow-sm transition-all">
           <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
             <button
               onClick={() => handleCategoryClick('Tous')}
@@ -113,10 +114,10 @@ const Index = () => {
               </span>
             </button>
             
+            {/* On trie les catégories reçues du hook */}
             {categories.sort((a,b) => (a.id === 'Promotions' ? -1 : 1)).map((category) => {
               const isActive = activeCategory === category.id;
               const isPromo = category.id === 'Promotions';
-              
               return (
                 <button
                   key={category.id}
@@ -134,8 +135,7 @@ const Index = () => {
           </div>
         </div>
 
-        {/* --- GRILLE DE PRODUITS CIBLÉE --- */}
-        {/* On attache la référence ici pour savoir où scroller */}
+        {/* Grille Produits */}
         <div 
           ref={productsGridRef} 
           className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-h-[50vh]"
@@ -163,22 +163,14 @@ const Index = () => {
             <p className="text-lg text-gray-500 dark:text-gray-400">
               Aucun produit ne correspond à "{searchQuery}".
             </p>
-            <Button
-              variant="link"
-              className="mt-2 text-primary"
-              onClick={() => handleCategoryClick('Tous')}
-            >
+            <Button variant="link" className="mt-2 text-primary" onClick={() => handleCategoryClick('Tous')}>
               Voir tous les produits
             </Button>
           </div>
         )}
       </main>
 
-      <AddToCartModal
-        product={selectedProduct}
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-      />
+      <AddToCartModal product={selectedProduct} isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
   );
 };
